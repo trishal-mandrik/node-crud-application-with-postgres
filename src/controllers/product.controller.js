@@ -19,3 +19,9 @@ exports.listAllProducts = async (req, res) => {
     const response = await db.query('Select * from public.products order by productname');
     res.status(200).send(response.rows);
 }
+
+exports.findProductById = async (req, res) => {
+    const productId = parseInt(req.params.id);
+    const response = await db.query('select * from public.products where productid = $1', [productId])
+    res.status(200).send(response.rows);
+}
