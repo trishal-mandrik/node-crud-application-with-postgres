@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const cleanroutes = require('express-clean-routes');
+const config = require('./config/env');
 
 const app = express();
+app.locals.cnf = config;
 
 // Routes
 const routes = require('./routes')
