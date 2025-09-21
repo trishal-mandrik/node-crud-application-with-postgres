@@ -1,11 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const paths = [];
 
-router.get('/api', (req, res) => {
-    res.status(200).send({
-        success: 'true',
-        message: 'Welcome to the API',
-        version: '1.0.0'
-    });
-});
-module.exports = router;
+paths.push(require('./productRoute'));
+
+module.exports = paths;
