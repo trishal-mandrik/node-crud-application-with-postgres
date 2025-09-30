@@ -8,7 +8,11 @@ const pool = new Pool({
 });
 
 pool.on('connect', () => {
-    console.log('Connected to the database');
+    try {
+        console.log('Connected to the database');
+    } catch (error) {
+        console.error('Database connection error:', error.stack);
+    }
 })
 
 module.exports = {
